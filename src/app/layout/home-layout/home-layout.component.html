@@ -1,0 +1,64 @@
+<mat-drawer-container (window:resize)="onResize(drawer)">
+
+    <mat-drawer mode="over" #drawer>
+        <div class="d-flex flex-column">
+            <a  routerLink="/" 
+                mat-button class="px-5 text-left" 
+                (click)="drawer.close()">
+                Inicio
+            </a>
+            <a  routerLink="/acerca-de" 
+                mat-button class="px-5 text-left" 
+                routerLinkActive="router-link__active"
+                (click)="drawer.close()">
+                Sobre mí
+            </a>
+            <a  routerLink="/portafolio" 
+                mat-button class="px-5 text-left" 
+                routerLinkActive="router-link__active"
+                (click)="drawer.close()">
+                Portafolio
+            </a>
+            <a  routerLink="/contacto" 
+                mat-button class="px-5 text-left" 
+                routerLinkActive="router-link__active"
+                (click)="drawer.close()">
+                Contacto
+            </a>
+        </div>
+    </mat-drawer>
+
+    <mat-drawer-content>
+
+        <mat-toolbar color="primary" class="p-0">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <a routerLink="/" mat-button style="font-size: 20px;">Paul Tamayo</a>
+                    </div>
+                    <div class="col d-flex justify-content-end d-lg-none">
+                        <button mat-icon-button (click)="drawer.toggle()">
+                            <mat-icon>menu</mat-icon>
+                        </button>
+                    </div>
+                    <div class="col-10 d-none d-lg-flex justify-content-end">
+                        <a routerLink="/" mat-button>INICIO</a>
+                        <a routerLink="/acerca-de" mat-button routerLinkActive="router-link__active">SOBRE MI</a>
+                        <a routerLink="/portafolio" mat-button routerLinkActive="router-link__active">PORTAFOLIO</a>
+                        <a routerLink="/contacto" mat-button routerLinkActive="router-link__active">CONTACTO</a>
+                    </div>
+                </div>
+            </div>
+        </mat-toolbar>
+
+        <main class="main">
+            <router-outlet></router-outlet>
+        </main>
+
+        <footer class="footer">
+            <p class="copyright">© 2020 Paul Tamayo | Todos los derechos reservados</p>    
+        </footer>
+
+    </mat-drawer-content>
+
+</mat-drawer-container>
